@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmhpxbr48eqpo"]
+[gd_scene load_steps=3 format=3 uid="uid://cmhpxbr48eqpo"]
 
-[ext_resource type="PackedScene" path="res://Player.tscn" id="1_1q1p2"]
+[ext_resource type="PackedScene" uid="uid://cb8xkqgyjp80b" path="res://Player.tscn" id="1_1q1p2"]
+[ext_resource type="PackedScene" uid="uid://5bgiub0jk47p" path="res://mob_slime.tscn" id="2_m4g0g"]
 
 [node name="Game" type="Node2D"]
 
@@ -18,3 +19,6 @@ motion_mode = 1
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1137, 629)
 zoom = Vector2(0.51, 0.51)
+
+[node name="mob_slime" parent="." instance=ExtResource("2_m4g0g")]
+position = Vector2(345, 245)
