@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 600.0
+const SPEED = 700.0
 
 var move_direction
 
@@ -14,7 +14,7 @@ func _update_move_direction():
 	move_direction = Input.get_axis("ui_left", "ui_right")
 
 func _apply_movement():
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * SPEED
 		
 	move_and_slide()

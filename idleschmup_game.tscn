@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmhpxbr48eqpo"]
+[gd_scene load_steps=5 format=3 uid="uid://cmhpxbr48eqpo"]
 
 [ext_resource type="PackedScene" uid="uid://cb8xkqgyjp80b" path="res://Player.tscn" id="1_1q1p2"]
+[ext_resource type="Script" path="res://attack_range.gd" id="2_17nf2"]
 [ext_resource type="PackedScene" uid="uid://5bgiub0jk47p" path="res://mob_slime.tscn" id="2_m4g0g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c10p2"]
 
 [node name="Game" type="Node2D"]
 
@@ -16,9 +19,19 @@ color = Color(0.2, 0.470588, 0.270588, 1)
 position = Vector2(1145, 627)
 motion_mode = 1
 
+[node name="attack_range" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_17nf2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/attack_range"]
+scale = Vector2(30, 30)
+shape = SubResource("CircleShape2D_c10p2")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1137, 629)
 zoom = Vector2(0.51, 0.51)
 
 [node name="mob_slime" parent="." instance=ExtResource("2_m4g0g")]
 position = Vector2(345, 245)
+collision_layer = 2
