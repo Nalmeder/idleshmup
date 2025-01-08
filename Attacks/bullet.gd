@@ -1,6 +1,6 @@
 extends Area2D
 
-var RANGE = 600
+var RANGE = 1000
 var SPEED = 1000
 var travelled_distance = 0
 
