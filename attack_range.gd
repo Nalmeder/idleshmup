@@ -13,11 +13,17 @@ func _physics_process(delta):
 func shoot(body):
 	const BULLET = preload("res://Attacks/bullet.tscn")  # make projectile by loading scene
 	var new_bullet = BULLET.instantiate()                # instantiate the scene
-	var direction = global_position.direction_to(body.global_position)
-	new_bullet.rotation = direction.angle()
-	new_bullet.global_position.y = new_bullet.global_position.y - 30
-	add_child(new_bullet)                                # create instance of projectile on node
+	orient_bullet(new_bullet, body)
+	get_tree().current_scene.add_child(new_bullet)        # create instance of projectile on node
 	$Timer.start()
+	
+func orient_bullet(bullet, body):
+	var direction = global_position.direction_to(body.global_position)
+	bullet.rotation = direction.angle()
+	bullet.global_position = $"..".global_position
+	bullet.position.y = bullet.position.y - 30
+	
+	
 	
 	
 		
