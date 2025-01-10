@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjn4nmes0tpxb"]
-
-[ext_resource type="Script" path="res://take_damage.gd" id="1_iyy0s"]
-
-[node name="damage_component" type="Node2D"]
-script = ExtResource("1_iyy0s")
