@@ -25,7 +25,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("2_17nf2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/attack_range"]
+[node name="AttackRange" type="CollisionShape2D" parent="Player/attack_range"]
 scale = Vector2(40, 40)
 shape = SubResource("CircleShape2D_c10p2")
 
@@ -34,11 +34,6 @@ wait_time = 0.75
 
 [node name="mob_slime" parent="." instance=ExtResource("2_m4g0g")]
 position = Vector2(345, 245)
-collision_layer = 2
 
 [node name="immortal_slime" parent="." instance=ExtResource("4_feq3o")]
 position = Vector2(524, 245)
-instance_module = Color(0.196078, 0.196078, 0.196078, 1)
-SPEED = 100
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]

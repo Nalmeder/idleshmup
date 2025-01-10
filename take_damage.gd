@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var contact_damage = 0
 
 func apply_damage(amount):
 	if get_parent().has_node("health_component"):

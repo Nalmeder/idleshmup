@@ -6,7 +6,8 @@ extends CharacterBody2D
 
 func _ready():
 	modulate = instance_module
-	get_node("Slime").play_walk()
+	if name != 'immortal_slime':  # checking name of node
+		get_node("Slime").play_walk()
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(player.global_position)

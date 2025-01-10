@@ -1,27 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb8xkqgyjp80b"]
+[gd_scene load_steps=7 format=3 uid="uid://cb8xkqgyjp80b"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_0cqbq"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="2_bikoa"]
-[ext_resource type="PackedScene" uid="uid://dddqyntjff3cp" path="res://components/damage_component.tscn" id="3_wmxx7"]
+[ext_resource type="Script" path="res://take_damage.gd" id="3_l4yr1"]
 [ext_resource type="PackedScene" uid="uid://cuhrf53bsvtu3" path="res://components/health_component.tscn" id="4_jlhpp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pv5bv"]
 radius = 31.0
 height = 94.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j2awt"]
+
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_0cqbq")
 
 [node name="HappyBoo" parent="." instance=ExtResource("2_bikoa")]
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(-1, -45)
 shape = SubResource("CapsuleShape2D_pv5bv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.5, 0.5)
 
-[node name="damage_component" parent="." instance=ExtResource("3_wmxx7")]
+[node name="damage_component" type="Node2D" parent="."]
+script = ExtResource("3_l4yr1")
 
 [node name="health_component" parent="." instance=ExtResource("4_jlhpp")]
 max_health = 100
+
+[node name="Hurtbox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-1, -45)
+scale = Vector2(3.15, 3.15)
+shape = SubResource("CapsuleShape2D_j2awt")
+debug_color = Color(0.972549, 0, 0.45098, 0.419608)
+
+[node name="I-Frames" type="Timer" parent="."]
+unique_name_in_owner = true
