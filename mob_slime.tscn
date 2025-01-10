@@ -25,3 +25,4 @@ shape = SubResource("CapsuleShape2D_d6ntg")
 [node name="health_component" parent="." instance=ExtResource("4_7nwmv")]
 
 [node name="damage_component" parent="." instance=ExtResource("3_ps8hm")]
+contact_damage = 8

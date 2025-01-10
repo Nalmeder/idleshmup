@@ -10,7 +10,13 @@ func _physics_process(delta):
 	_update_move_direction()
 	_apply_movement()
 	if %Hurtbox.get_overlapping_bodies():
-		$on_damage_component.start_i_frames()
+		if $"on_damage_component/I-Frames".is_stopped():
+			$on_damage_component.start_i_frames()
+			var body = %Hurtbox.get_overlapping_bodies()[0]
+			var dmg = body.get_node("damage_component").contact_damage
+			print(dmg)
+			$damage_component.apply_damage(dmg)
+			
 		
 	$on_damage_component.check_frames(i_frame_length)
 
