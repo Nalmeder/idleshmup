@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="2_bikoa"]
 [ext_resource type="Script" path="res://take_damage.gd" id="3_l4yr1"]
 [ext_resource type="PackedScene" uid="uid://cuhrf53bsvtu3" path="res://components/health_component.tscn" id="4_jlhpp"]
-[ext_resource type="PackedScene" uid="uid://doon81spgpm3d" path="res://components/on_damage_component.tscn" id="5_7hmnh"]
+[ext_resource type="PackedScene" uid="uid://doon81spgpm3d" path="res://components/on_hit_component.tscn" id="5_hg00r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pv5bv"]
 radius = 31.0
@@ -42,4 +42,4 @@ scale = Vector2(3.15, 3.15)
 shape = SubResource("CapsuleShape2D_j2awt")
 debug_color = Color(0.972549, 0, 0.45098, 0.419608)
 
-[node name="on_damage_component" parent="." instance=ExtResource("5_7hmnh")]
+[node name="on_hit_component" parent="." instance=ExtResource("5_hg00r")]
