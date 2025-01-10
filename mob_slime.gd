@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var SPEED = 300
 
 func _ready():
+	modulate = instance_module
 	get_node("Slime").play_walk()
 
 func _physics_process(delta):

@@ -38,6 +38,7 @@ collision_layer = 2
 
 [node name="immortal_slime" parent="." instance=ExtResource("4_feq3o")]
 position = Vector2(524, 245)
+instance_module = Color(0.196078, 0.196078, 0.196078, 1)
 SPEED = 100
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
