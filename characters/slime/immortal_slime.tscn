@@ -13,7 +13,7 @@ position = Vector2(345, 245)
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_6klls")
-instance_module = Color(0.196078, 0.196078, 0.196078, 1)
+instance_module = Color(0.32549, 0.32549, 0.34902, 1)
 SPEED = 100
 
 [node name="Slime" parent="." instance=ExtResource("2_1w50o")]

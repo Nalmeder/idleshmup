@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://du6ysxp8thu8b"]
+
+[ext_resource type="Script" path="res://characters/slime/Green_Slime.gd" id="1_8rpfa"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="2_3aspu"]
+[ext_resource type="PackedScene" uid="uid://cuhrf53bsvtu3" path="res://components/health_component.tscn" id="3_f557t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_owoyj"]
+radius = 43.0
+height = 110.0
+
+[node name="Bomber_Slime" type="CharacterBody2D"]
+script = ExtResource("1_8rpfa")
+instance_module = Color(0, 0, 0, 1)
+SPEED = 150
+
+[node name="Slime" parent="." instance=ExtResource("2_3aspu")]
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0.02, -32.945)
+rotation = 1.5708
+scale = Vector2(0.95, 0.95)
+shape = SubResource("CapsuleShape2D_owoyj")
+
+[node name="health_component" parent="." instance=ExtResource("3_f557t")]
