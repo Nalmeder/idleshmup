@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://5bgiub0jk47p"]
 
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="1_7gd02"]
-[ext_resource type="Script" path="res://mob_slime.gd" id="1_ijr44"]
+[ext_resource type="Script" path="res://characters/slime/Green_Slime.gd" id="1_fydyh"]
 [ext_resource type="PackedScene" uid="uid://dddqyntjff3cp" path="res://components/damage_component.tscn" id="3_ps8hm"]
 [ext_resource type="PackedScene" uid="uid://cuhrf53bsvtu3" path="res://components/health_component.tscn" id="4_7nwmv"]
 
@@ -9,10 +9,10 @@
 radius = 43.0
 height = 110.0
 
-[node name="mob_slime" type="CharacterBody2D"]
+[node name="Green_Slime" type="CharacterBody2D"]
 collision_layer = 2
 motion_mode = 1
-script = ExtResource("1_ijr44")
+script = ExtResource("1_fydyh")
 
 [node name="Slime" parent="." instance=ExtResource("1_7gd02")]
 

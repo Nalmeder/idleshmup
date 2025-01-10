@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cb8xkqgyjp80b"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_0cqbq"]
+[ext_resource type="Script" path="res://characters/happy_boo/Player.gd" id="1_0cqbq"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="2_bikoa"]
-[ext_resource type="Script" path="res://take_damage.gd" id="3_l4yr1"]
+[ext_resource type="Script" path="res://Scripts/take_damage.gd" id="3_l4yr1"]
 [ext_resource type="PackedScene" uid="uid://cuhrf53bsvtu3" path="res://components/health_component.tscn" id="4_jlhpp"]
 [ext_resource type="PackedScene" uid="uid://doon81spgpm3d" path="res://components/on_hit_component.tscn" id="5_hg00r"]
 
