@@ -25,15 +25,11 @@ collision_mask = 2
 script = ExtResource("2_17nf2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/attack_range"]
-scale = Vector2(30, 30)
+scale = Vector2(40, 40)
 shape = SubResource("CircleShape2D_c10p2")
 
 [node name="Timer" type="Timer" parent="Player/attack_range"]
 wait_time = 0.75
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1137, 629)
-zoom = Vector2(0.51, 0.51)
 
 [node name="mob_slime" parent="." instance=ExtResource("2_m4g0g")]
 position = Vector2(345, 245)

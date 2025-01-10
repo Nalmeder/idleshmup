@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://5bgiub0jk47p"]
+[gd_scene load_steps=6 format=3 uid="uid://5bgiub0jk47p"]
 
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="1_7gd02"]
 [ext_resource type="Script" path="res://mob_slime.gd" id="1_ijr44"]
+[ext_resource type="PackedScene" uid="uid://dddqyntjff3cp" path="res://components/damage_component.tscn" id="3_ps8hm"]
+[ext_resource type="PackedScene" uid="uid://cuhrf53bsvtu3" path="res://components/health_component.tscn" id="4_7nwmv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6ntg"]
 radius = 43.0
@@ -13,8 +15,19 @@ script = ExtResource("1_ijr44")
 
 [node name="Slime" parent="." instance=ExtResource("1_7gd02")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(0.02, -32.945)
 rotation = 1.5708
 scale = Vector2(0.95, 0.95)
 shape = SubResource("CapsuleShape2D_d6ntg")
+
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
+position = Vector2(0.02, -32.945)
+rotation = 1.5708
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CapsuleShape2D_d6ntg")
+debug_color = Color(0.988235, 0, 0.313726, 0.419608)
+
+[node name="damage_component" parent="." instance=ExtResource("3_ps8hm")]
+
+[node name="health_component" parent="." instance=ExtResource("4_7nwmv")]

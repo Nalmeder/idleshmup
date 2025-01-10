@@ -17,6 +17,7 @@ func shoot(body):
 	get_tree().current_scene.add_child(new_bullet)        # create instance of projectile on node
 	$Timer.start()
 	
+	
 func orient_bullet(bullet, body):
 	var direction = global_position.direction_to(body.global_position)
 	bullet.rotation = direction.angle()
