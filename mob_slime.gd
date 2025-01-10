@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 300
-
 @onready var player = get_node("../Player")
+@export var instance_module = Color(1.0 , 1.0, 1.0)
+@export var SPEED = 300
 
 func _ready():
 	get_node("Slime").play_walk()

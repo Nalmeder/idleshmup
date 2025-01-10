@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm7x5034kn7wb"]
+
+[ext_resource type="Script" path="res://mob_slime.gd" id="1_fgayw"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="2_1w50o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6ntg"]
+radius = 43.0
+height = 110.0
+
+[node name="immortal_slime" type="CharacterBody2D"]
+position = Vector2(345, 245)
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_fgayw")
+instance_module = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="Slime" parent="." instance=ExtResource("2_1w50o")]
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0.02, -32.945)
+rotation = 1.5708
+scale = Vector2(0.95, 0.95)
+shape = SubResource("CapsuleShape2D_d6ntg")
+
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
+position = Vector2(0.02, -32.945)
+rotation = 1.5708
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CapsuleShape2D_d6ntg")
+debug_color = Color(0.988235, 0, 0.313726, 0.419608)
