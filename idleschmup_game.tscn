@@ -1,13 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmhpxbr48eqpo"]
+[gd_scene load_steps=8 format=3 uid="uid://cmhpxbr48eqpo"]
 
 [ext_resource type="PackedScene" uid="uid://cb8xkqgyjp80b" path="res://characters/happy_boo/Player.tscn" id="1_1q1p2"]
+[ext_resource type="Script" path="res://game_controller.gd" id="1_hi5km"]
 [ext_resource type="Script" path="res://characters/happy_boo/attack_range.gd" id="2_1etvy"]
 [ext_resource type="PackedScene" uid="uid://5bgiub0jk47p" path="res://characters/slime/Green_Slime.tscn" id="2_m4g0g"]
 [ext_resource type="PackedScene" uid="uid://dm7x5034kn7wb" path="res://characters/slime/immortal_slime.tscn" id="4_feq3o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c10p2"]
 
+[sub_resource type="Curve2D" id="Curve2D_cm3mg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -165, -159, 0, 0, 0, 0, 2467.88, -159, 0, 0, 0, 0, 2456, 1420, 0, 0, 0, 0, 1148.47, 1431.89, 0, 0, 0, 0, -157.082, 1431.89, 0, 0, 0, 0, -165, -159)
+}
+point_count = 6
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_hi5km")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -48.0
@@ -37,3 +45,12 @@ position = Vector2(524, 245)
 
 [node name="Green_Slime" parent="." instance=ExtResource("2_m4g0g")]
 position = Vector2(317, 242)
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-23.2322, -13.4895)
+scale = Vector2(1.02284, 1.0095)
+curve = SubResource("Curve2D_cm3mg")
+
+[node name="Spawn_Path" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+position = Vector2(-165, -159)
