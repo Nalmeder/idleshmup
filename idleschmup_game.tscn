@@ -44,6 +44,7 @@ wait_time = 0.75
 
 [node name="immortal_slime" parent="." instance=ExtResource("4_feq3o")]
 position = Vector2(524, 245)
+Enemy_Type = "IMMORTAL_SLIME"
 
 [node name="Green_Slime" parent="." instance=ExtResource("2_m4g0g")]
 position = Vector2(317, 242)

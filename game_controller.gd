@@ -7,12 +7,14 @@ var wave_ptr = 0
 
 func _ready():
 	spawn_mob(GREEN_SLIME)
-	spawn_mob(GREEN_SLIME)
+	spawn_mob(IMMORTAL_SLIME)
 
 func spawn_mob(mob):
 	var new_mob = mob.instantiate() 
 	%Spawn_Path.progress_ratio = randf()
 	new_mob.global_position = %Spawn_Path.global_position
+	new_mob.Enemy_Type = str(new_mob).split(":")[0]
+	print(new_mob.Enemy_Type)
 	add_child(new_mob)
 	
 

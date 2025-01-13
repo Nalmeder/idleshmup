@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm7x5034kn7wb"]
+[gd_scene load_steps=6 format=3 uid="uid://dm7x5034kn7wb"]
 
 [ext_resource type="Script" path="res://characters/slime/Green_Slime.gd" id="1_6klls"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="2_1w50o"]
 [ext_resource type="PackedScene" uid="uid://dddqyntjff3cp" path="res://components/damage_component.tscn" id="3_26kjp"]
+[ext_resource type="Script" path="res://characters/slime/Death_Timer.gd" id="4_05hh4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6ntg"]
 radius = 43.0
@@ -26,3 +27,8 @@ shape = SubResource("CapsuleShape2D_d6ntg")
 
 [node name="damage_component" parent="." instance=ExtResource("3_26kjp")]
 contact_damage = 20
+
+[node name="Death_Timer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+script = ExtResource("4_05hh4")
