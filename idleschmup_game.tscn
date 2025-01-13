@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmhpxbr48eqpo"]
+[gd_scene load_steps=9 format=3 uid="uid://cmhpxbr48eqpo"]
 
 [ext_resource type="PackedScene" uid="uid://cb8xkqgyjp80b" path="res://characters/happy_boo/Player.tscn" id="1_1q1p2"]
 [ext_resource type="Script" path="res://game_controller.gd" id="1_hi5km"]
 [ext_resource type="Script" path="res://characters/happy_boo/attack_range.gd" id="2_1etvy"]
 [ext_resource type="PackedScene" uid="uid://5bgiub0jk47p" path="res://characters/slime/Green_Slime.tscn" id="2_m4g0g"]
 [ext_resource type="PackedScene" uid="uid://dm7x5034kn7wb" path="res://characters/slime/immortal_slime.tscn" id="4_feq3o"]
+[ext_resource type="Script" path="res://Game_Time.gd" id="6_64l2o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c10p2"]
 
@@ -54,3 +55,28 @@ curve = SubResource("Curve2D_cm3mg")
 [node name="Spawn_Path" type="PathFollow2D" parent="Path2D"]
 unique_name_in_owner = true
 position = Vector2(-165, -159)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Game_Time" type="Timer" parent="CanvasLayer"]
+unique_name_in_owner = true
+autostart = true
+script = ExtResource("6_64l2o")
+
+[node name="Time_Label" type="Label" parent="CanvasLayer/Game_Time"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.45098)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -205.5
+offset_right = 205.5
+offset_bottom = 113.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "Time: 0:00
+"
+autowrap_mode = 2
+
+[connection signal="new_wave" from="CanvasLayer/Game_Time" to="." method="_on_game_time_new_wave"]

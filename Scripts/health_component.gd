@@ -11,7 +11,7 @@ func _ready():
 func reduce_health(amount):
 	current_health -= amount
 	emit_signal('entity_hit')
-	print("Health reduced by ", amount, ". Current health: ", current_health)
+	# print("Health reduced by ", amount, ". Current health: ", current_health)
 	
 	if current_health <= 0:
 		die()

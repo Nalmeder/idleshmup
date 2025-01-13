@@ -14,7 +14,7 @@ func _physics_process(delta):
 			$on_hit_component.start_i_frames()
 			var body = %Hurtbox.get_overlapping_bodies()[0]
 			var dmg = body.get_node("damage_component").contact_damage
-			print(dmg)
+			# print(dmg)
 			$damage_component.apply_damage(dmg)
 			
 		
