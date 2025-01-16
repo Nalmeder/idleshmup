@@ -6,14 +6,17 @@ signal new_wave
 const NEW_WAVE = 30 
 
 func get_time(elapsed_time):
-	var time_string = "Time: 0:"
-	if (elapsed_time % 60) < 10:
-		time_string = str(time_string, "0", elapsed_time)
+	var time_string = ":"
+	var minutes = int(elapsed_time/60)
+	var seconds = elapsed_time % 60
+	
+	# handle right half of colon
+	if seconds < 10:
+		time_string = str(time_string, "0", seconds)
 	else:
-		time_string = str(time_string, elapsed_time)
-	if elapsed_time > 60:
-		time_string = str(int(elapsed_time/60), time_string)
-	return time_string
+		time_string = str(time_string, seconds)
+	
+	return str("Time: ", minutes, time_string)
 
 func _on_timeout():
 	elapsed_seconds += 1

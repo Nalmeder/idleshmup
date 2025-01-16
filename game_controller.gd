@@ -6,8 +6,7 @@ const WAVES = [GREEN_SLIME, IMMORTAL_SLIME]
 var wave_ptr = 0
 
 func _ready():
-	spawn_mob(GREEN_SLIME)
-	spawn_mob(IMMORTAL_SLIME)
+	pass
 
 func spawn_mob(mob):
 	var new_mob = mob.instantiate() 

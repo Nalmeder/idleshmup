@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmhpxbr48eqpo"]
+[gd_scene load_steps=9 format=3 uid="uid://cmhpxbr48eqpo"]
 
 [ext_resource type="PackedScene" uid="uid://cb8xkqgyjp80b" path="res://characters/happy_boo/Player.tscn" id="1_1q1p2"]
 [ext_resource type="Script" path="res://game_controller.gd" id="1_hi5km"]
 [ext_resource type="Script" path="res://characters/happy_boo/attack_range.gd" id="2_1etvy"]
 [ext_resource type="PackedScene" uid="uid://5bgiub0jk47p" path="res://characters/slime/Green_Slime.tscn" id="2_m4g0g"]
-[ext_resource type="PackedScene" uid="uid://dm7x5034kn7wb" path="res://characters/slime/immortal_slime.tscn" id="4_feq3o"]
 [ext_resource type="Script" path="res://Game_Time.gd" id="6_64l2o"]
 [ext_resource type="Script" path="res://Spawn_Timer.gd" id="7_lb8x1"]
 
@@ -41,10 +40,6 @@ shape = SubResource("CircleShape2D_c10p2")
 
 [node name="Timer" type="Timer" parent="Player/attack_range"]
 wait_time = 0.75
-
-[node name="immortal_slime" parent="." instance=ExtResource("4_feq3o")]
-position = Vector2(524, 245)
-Enemy_Type = "IMMORTAL_SLIME"
 
 [node name="Green_Slime" parent="." instance=ExtResource("2_m4g0g")]
 position = Vector2(317, 242)
