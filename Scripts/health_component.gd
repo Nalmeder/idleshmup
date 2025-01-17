@@ -6,8 +6,12 @@ signal entity_hit
 
 func _ready():
 	current_health = max_health  # Initialize health
+	%HealthBar.value = max_health	 # Initialize full health bar
+	%HealthBar.max_value = max_health
 	
-
+func _physics_process(delta):
+	%HealthBar.value = current_health
+	
 func reduce_health(amount):
 	current_health -= amount
 	emit_signal('entity_hit')
