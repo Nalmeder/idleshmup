@@ -24,15 +24,3 @@ func orient_bullet(bullet, body):
 	bullet.global_position = $"..".global_position
 	bullet.position.y = bullet.position.y - 30
 	
-	
-	
-	
-		
-"""
-not used, but I predict a problem later that using these incorrectly spawning bullets may help debug
-func shoot():
-	const BULLET = preload("res://Attacks/bullet.tscn")  # make projectile by loading scene
-	var new_bullet = BULLET.instantiate()                # instantiate the scene
-	new_bullet.global_position = $"..".global_position   # set position of instantiated scene
-	$"..".add_child(new_bullet)                          # create instance of projectile on node
-"""

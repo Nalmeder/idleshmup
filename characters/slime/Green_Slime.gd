@@ -28,5 +28,6 @@ func update_movement():
 
 func drop_items():
 	var loot = gem.instantiate()  
+	loot.name = 'Gem'
 	loot.position = global_position  
 	get_parent().add_child(loot)  

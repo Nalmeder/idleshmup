@@ -1,16 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://cb8xkqgyjp80b"]
+[gd_scene load_steps=10 format=3 uid="uid://cb8xkqgyjp80b"]
 
 [ext_resource type="Script" path="res://characters/happy_boo/Player.gd" id="1_0cqbq"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="2_bikoa"]
 [ext_resource type="Script" path="res://Scripts/take_damage.gd" id="3_l4yr1"]
 [ext_resource type="PackedScene" uid="uid://cuhrf53bsvtu3" path="res://components/health_component.tscn" id="4_jlhpp"]
 [ext_resource type="PackedScene" uid="uid://doon81spgpm3d" path="res://components/on_hit_component.tscn" id="5_hg00r"]
+[ext_resource type="Script" path="res://characters/happy_boo/Grab_Range.gd" id="6_v71aq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pv5bv"]
 radius = 31.0
 height = 94.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j2awt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7i8i3"]
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2
@@ -45,5 +48,11 @@ debug_color = Color(0.972549, 0, 0.45098, 0.419608)
 [node name="on_hit_component" parent="." instance=ExtResource("5_hg00r")]
 
 [node name="Grab_Range" type="Area2D" parent="."]
+collision_mask = 4
+script = ExtResource("6_v71aq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grab_Range"]
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_7i8i3")
+
+[connection signal="body_entered" from="Grab_Range" to="Grab_Range" method="_on_body_entered"]
