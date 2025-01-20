@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmhpxbr48eqpo"]
+[gd_scene load_steps=10 format=3 uid="uid://cmhpxbr48eqpo"]
 
 [ext_resource type="PackedScene" uid="uid://cb8xkqgyjp80b" path="res://characters/happy_boo/Player.tscn" id="1_1q1p2"]
 [ext_resource type="Script" path="res://game_controller.gd" id="1_hi5km"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://5bgiub0jk47p" path="res://characters/slime/Green_Slime.tscn" id="2_m4g0g"]
 [ext_resource type="Script" path="res://Game_Time.gd" id="6_64l2o"]
 [ext_resource type="Script" path="res://Spawn_Timer.gd" id="7_lb8x1"]
+[ext_resource type="PackedScene" uid="uid://djl3cni8o8yga" path="res://characters/slime/fast_slime.tscn" id="7_lt4p0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c10p2"]
 
@@ -79,6 +80,8 @@ autowrap_mode = 2
 
 [node name="Spawn_Timer" type="Timer" parent="."]
 script = ExtResource("7_lb8x1")
+
+[node name="Fast_Slime" parent="." instance=ExtResource("7_lt4p0")]
 
 [connection signal="new_wave" from="CanvasLayer/Game_Time" to="." method="_on_game_time_new_wave"]
 [connection signal="timeout" from="Spawn_Timer" to="." method="_on_spawn_timer_timeout"]

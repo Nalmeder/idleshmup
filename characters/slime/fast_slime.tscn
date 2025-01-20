@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://djl3cni8o8yga"]
+
+[ext_resource type="Script" path="res://characters/slime/Green_Slime.gd" id="1_7da35"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="2_71ngq"]
+[ext_resource type="PackedScene" uid="uid://cuhrf53bsvtu3" path="res://components/health_component.tscn" id="3_jnwt8"]
+[ext_resource type="PackedScene" uid="uid://dddqyntjff3cp" path="res://components/damage_component.tscn" id="4_uh267"]
+[ext_resource type="Script" path="res://characters/slime/fast_slime_ai.gd" id="5_7402e"]
+[ext_resource type="Script" path="res://characters/slime/Direction_Timer.gd" id="6_1dm4t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6ntg"]
+radius = 43.0
+height = 110.0
+
+[node name="Fast_Slime" type="CharacterBody2D"]
+position = Vector2(317, 242)
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_7da35")
+instance_module = Color(0.00392157, 0.231373, 0.92549, 1)
+SPEED = 1000
+Enemy_Type = "Fast_Slime"
+
+[node name="Slime" parent="." instance=ExtResource("2_71ngq")]
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0.02, -32.945)
+rotation = 1.5708
+scale = Vector2(0.95, 0.95)
+shape = SubResource("CapsuleShape2D_d6ntg")
+
+[node name="health_component" parent="." instance=ExtResource("3_jnwt8")]
+max_health = 5
+
+[node name="damage_component" parent="." instance=ExtResource("4_uh267")]
+contact_damage = 25
+
+[node name="fast_slime_ai" type="CharacterBody2D" parent="."]
+script = ExtResource("5_7402e")
+
+[node name="Direction_Timer" type="Timer" parent="fast_slime_ai"]
+autostart = true
+script = ExtResource("6_1dm4t")
+
+[connection signal="entity_hit" from="health_component" to="Slime" method="_on_health_component_entity_hit" flags=18]
+[connection signal="direction_lock" from="fast_slime_ai/Direction_Timer" to="fast_slime_ai" method="_on_direction_timer_direction_lock"]
+[connection signal="stop_movement" from="fast_slime_ai/Direction_Timer" to="fast_slime_ai" method="_on_direction_timer_stop_movement"]

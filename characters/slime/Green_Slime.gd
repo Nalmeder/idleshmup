@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var SPEED = 300
 @export var Enemy_Type : String = "Green_Slime"
 
+var default_ai = true
 
 func _ready():
 	modulate = instance_module
@@ -12,7 +13,13 @@ func _ready():
 		get_node("Slime").play_walk()
 
 func _physics_process(delta):
-	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * SPEED
+	handle_ai(delta)
 	move_and_slide()
 
+func handle_ai(delta):
+	if default_ai:
+		update_movement()
+
+func update_movement():
+	var direction = global_position.direction_to(player.global_position)
+	velocity = direction * SPEED

@@ -12,3 +12,4 @@ func play_hurt():
 
 func _on_health_component_entity_hit():
 	play_hurt()
+
