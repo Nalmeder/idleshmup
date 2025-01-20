@@ -21,4 +21,5 @@ func reduce_health(amount):
 		die()
 
 func die():
+	get_parent().drop_items()
 	get_parent().queue_free()    # Destroy the parent

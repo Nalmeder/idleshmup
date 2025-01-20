@@ -43,3 +43,7 @@ shape = SubResource("CapsuleShape2D_j2awt")
 debug_color = Color(0.972549, 0, 0.45098, 0.419608)
 
 [node name="on_hit_component" parent="." instance=ExtResource("5_hg00r")]
+
+[node name="Grab_Range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grab_Range"]

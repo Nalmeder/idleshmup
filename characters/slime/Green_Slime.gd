@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+@onready var gem = preload("res://Items/gem.tscn")
 @onready var player = get_node("../Player")
 @export var instance_module = Color(1.0 , 1.0, 1.0)
 @export var SPEED = 300
 @export var Enemy_Type : String = "Green_Slime"
+@export var Exp : int = 1
 
 var default_ai = true
 
@@ -23,3 +25,8 @@ func handle_ai(delta):
 func update_movement():
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * SPEED
+
+func drop_items():
+	var loot = gem.instantiate()  
+	loot.position = global_position  
+	get_parent().add_child(loot)  

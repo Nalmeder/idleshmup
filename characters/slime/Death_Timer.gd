@@ -5,6 +5,7 @@ func _ready():
 	%TimeBar.max_value = wait_time
 """
 func _on_timeout():
+	get_parent().drop_items()
 	get_parent().queue_free()
 
 """

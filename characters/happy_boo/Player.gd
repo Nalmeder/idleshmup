@@ -1,8 +1,13 @@
 extends CharacterBody2D
 
 const SPEED = 700.0
+
 var move_direction
 var i_frame_length = 32
+
+var experience = 0
+var experience_rate = 1.04
+var experience_cap = 5
 
 # @onready var sprite = get_node("HappyBoo/AnimationPlayer")
 

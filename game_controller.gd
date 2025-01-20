@@ -2,7 +2,8 @@ extends Node2D
 
 const GREEN_SLIME = preload("res://characters/slime/Green_Slime.tscn")
 const IMMORTAL_SLIME = preload("res://characters/slime/immortal_slime.tscn")
-const WAVES = [[GREEN_SLIME], [IMMORTAL_SLIME], [GREEN_SLIME, IMMORTAL_SLIME]]
+const FAST_SLIME = preload("res://characters/slime/fast_slime.tscn")
+const WAVES = [[GREEN_SLIME], [FAST_SLIME, GREEN_SLIME], [IMMORTAL_SLIME], [GREEN_SLIME, IMMORTAL_SLIME]]
 var wave_ptr = 0  # unless testing, should be 0
 
 func _ready():

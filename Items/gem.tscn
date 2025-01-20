@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://clu80fifv6fl5"]
+
+[ext_resource type="Texture2D" uid="uid://b8wosxiw45r3y" path="res://Items/Gem_blue.png" id="1_xpme0"]
+
+[node name="Gem" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xpme0")

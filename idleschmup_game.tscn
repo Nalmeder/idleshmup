@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://5bgiub0jk47p" path="res://characters/slime/Green_Slime.tscn" id="2_m4g0g"]
 [ext_resource type="Script" path="res://Game_Time.gd" id="6_64l2o"]
 [ext_resource type="Script" path="res://Spawn_Timer.gd" id="7_lb8x1"]
-[ext_resource type="PackedScene" uid="uid://djl3cni8o8yga" path="res://characters/slime/fast_slime.tscn" id="7_lt4p0"]
+[ext_resource type="Texture2D" uid="uid://b8wosxiw45r3y" path="res://Items/Gem_blue.png" id="8_qetqa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c10p2"]
 
@@ -81,7 +81,9 @@ autowrap_mode = 2
 [node name="Spawn_Timer" type="Timer" parent="."]
 script = ExtResource("7_lb8x1")
 
-[node name="Fast_Slime" parent="." instance=ExtResource("7_lt4p0")]
+[node name="GemBlue" type="Sprite2D" parent="."]
+position = Vector2(1510, 384)
+texture = ExtResource("8_qetqa")
 
 [connection signal="new_wave" from="CanvasLayer/Game_Time" to="." method="_on_game_time_new_wave"]
 [connection signal="timeout" from="Spawn_Timer" to="." method="_on_spawn_timer_timeout"]
