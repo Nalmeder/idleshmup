@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm7x5034kn7wb"]
+[gd_scene load_steps=8 format=3 uid="uid://dm7x5034kn7wb"]
 
 [ext_resource type="Script" path="res://characters/slime/Green_Slime.gd" id="1_6klls"]
 [ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="2_1w50o"]
@@ -8,6 +8,11 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6ntg"]
 radius = 43.0
 height = 110.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylmph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osgqp"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 1)
 
 [node name="immortal_slime" type="CharacterBody2D"]
 position = Vector2(345, 245)
@@ -32,3 +37,14 @@ contact_damage = 20
 wait_time = 15.0
 autostart = true
 script = ExtResource("4_05hh4")
+
+[node name="TimeBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -74.0
+offset_top = 17.0
+offset_right = 74.0
+offset_bottom = 44.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ylmph")
+theme_override_styles/fill = SubResource("StyleBoxFlat_osgqp")
+show_percentage = false

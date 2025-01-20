@@ -27,6 +27,7 @@ color = Color(0.2, 0.470588, 0.270588, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_1q1p2")]
 position = Vector2(1145, 627)
+collision_mask = 0
 motion_mode = 1
 
 [node name="attack_range" type="Area2D" parent="Player"]
