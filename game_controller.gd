@@ -14,7 +14,7 @@ func spawn_mob(mob):
 	%Spawn_Path.progress_ratio = randf()
 	new_mob.global_position = %Spawn_Path.global_position
 	new_mob.Enemy_Type = str(new_mob).split(":")[0]
-	print(new_mob.Enemy_Type)
+	#print(new_mob.Enemy_Type)
 	add_child(new_mob)
 	
 

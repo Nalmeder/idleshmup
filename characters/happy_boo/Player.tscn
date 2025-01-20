@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb8xkqgyjp80b"]
+[gd_scene load_steps=11 format=3 uid="uid://cb8xkqgyjp80b"]
 
 [ext_resource type="Script" path="res://characters/happy_boo/Player.gd" id="1_0cqbq"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="2_bikoa"]
@@ -15,8 +15,10 @@ height = 94.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7i8i3"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0nlcd"]
+
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_0cqbq")
 
 [node name="HappyBoo" parent="." instance=ExtResource("2_bikoa")]
@@ -54,5 +56,15 @@ script = ExtResource("6_v71aq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grab_Range"]
 scale = Vector2(20, 20)
 shape = SubResource("CircleShape2D_7i8i3")
+
+[node name="Grab_Area" type="Area2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(3, 3)
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grab_Area"]
+position = Vector2(0, -15)
+scale = Vector2(1.15, 1.15)
+shape = SubResource("CapsuleShape2D_0nlcd")
 
 [connection signal="body_entered" from="Grab_Range" to="Grab_Range" method="_on_body_entered"]
