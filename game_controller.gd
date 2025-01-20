@@ -2,11 +2,11 @@ extends Node2D
 
 const GREEN_SLIME = preload("res://characters/slime/Green_Slime.tscn")
 const IMMORTAL_SLIME = preload("res://characters/slime/immortal_slime.tscn")
-const WAVES = [GREEN_SLIME, IMMORTAL_SLIME]
-var wave_ptr = 0
+const WAVES = [[GREEN_SLIME], [IMMORTAL_SLIME], [GREEN_SLIME, IMMORTAL_SLIME]]
+var wave_ptr = 0  # unless testing, should be 0
 
 func _ready():
-	spawn_mob(IMMORTAL_SLIME)
+	pass
 
 func spawn_mob(mob):
 	var new_mob = mob.instantiate() 
@@ -23,4 +23,9 @@ func _on_game_time_new_wave():
 
 
 func _on_spawn_timer_timeout():
-	spawn_mob(WAVES[wave_ptr])
+	var current_list = WAVES[wave_ptr]
+	var list_size = current_list.size()
+	if list_size == 1:
+		spawn_mob(current_list[0])
+	else:
+		spawn_mob(current_list[randi_range(0, list_size-1)])
