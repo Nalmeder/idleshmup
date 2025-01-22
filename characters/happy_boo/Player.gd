@@ -8,6 +8,7 @@ var i_frame_length = 32
 var experience = 0
 var experience_rate = 1.04
 var experience_cap = 5
+var true_exp_cap = 5.00
 var level = 1
 
 # @onready var sprite = get_node("HappyBoo/AnimationPlayer")
@@ -49,5 +50,14 @@ func _apply_movement():
 
 func get_exp(value):
 	experience += value
-	print(experience)
+	while(experience >= experience_cap):
+		level_up()
+	#print(experience)
+	
+func level_up():
+	experience = experience - experience_cap
+	true_exp_cap = pow(true_exp_cap, experience_rate)
+	experience_cap = int(true_exp_cap)
+	level += 1
+	print(str('level ', level))
 
